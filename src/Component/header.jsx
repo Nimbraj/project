@@ -1,56 +1,61 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
     <header className="fixed top-0 left-0 w-full bg-[#cdebdd] shadow z-50">
-
       <div className="mx-auto flex h-16 max-w-screen-xl items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* Logo */}
-        <a className="flex items-center text-teal-600" href="#">
-          <span className="sr-only">Home</span>
-          <svg className="h-8 w-8" viewBox="0 0 28 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <Link to="/" className="flex items-center text-teal-600" aria-label="Home">
+          <svg
+            className="h-8 w-8"
+            viewBox="0 0 28 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
             <path
-              d="M0.41 10.3847C1.14777 7.4194 2.85643 4.7861 5.2639 2.90424C7.6714 1.02234 10.6393 0 13.695 0C16.7507 0 19.7186 1.02234 22.1261 2.90424C24.5336 4.7861 26.2422 7.4194 26.98 10.3847..."
+              d="M0.41 10.3847C1.14777 7.4194 2.85643 4.7861..."
               fill="currentColor"
             />
           </svg>
-        </a>
+        </Link>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:block">
           <ul className="flex items-center gap-6 text-sm text-gray-600">
-            <li><a href="#" className="hover:text-teal-600 transition">About</a></li>
-            <li><a href="#" className="hover:text-teal-600 transition">Careers</a></li>
-            <li><a href="#" className="hover:text-teal-600 transition">History</a></li>
-            <li><a href="#" className="hover:text-teal-600 transition">Services</a></li>
-            <li><a href="#" className="hover:text-teal-600 transition">Projects</a></li>
-            <li><a href="#" className="hover:text-teal-600 transition">Blog</a></li>
+            <li><Link to="/" className="hover:text-teal-600 transition">Home</Link></li>
+            <li><Link to="/about" className="hover:text-teal-600 transition">About</Link></li>
+            <li><Link to="/history" className="hover:text-teal-600 transition">History</Link></li>
+            <li><Link to="/services" className="hover:text-teal-600 transition">Services</Link></li>
+            <li><Link to="/prodct" className="hover:text-teal-600 transition">Product</Link></li>
+            <li><Link to="/blog" className="hover:text-teal-600 transition">Blog</Link></li>
           </ul>
         </nav>
 
-        {/* Auth Buttons */}
+        {/* Buttons */}
         <div className="flex items-center gap-4">
-          <a
-            href="#"
+          <Link
+            to="/login"
             className="rounded-md bg-teal-600 px-4 py-2 text-sm font-medium text-white hover:bg-teal-700 transition"
           >
             Login
-          </a>
-          <a
-            href="#"
-            className="hidden sm:block rounded-md bg-gray-100 px-4 py-2 text-sm font-medium text-teal-600 hover:text-teal-700 transition"
+          </Link>
+          <Link
+            to="/register"
+            className="hidden sm:block rounded-md bg-white border border-teal-500 px-4 py-2 text-sm font-medium text-teal-600 hover:bg-teal-100 transition"
           >
             Register
-          </a>
+          </Link>
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden rounded-md bg-gray-100 p-2 text-gray-600 hover:text-gray-800 transition"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="md:hidden rounded-md bg-gray-100 p-2 text-gray-600 hover:text-gray-800 transition"
+            aria-label="Toggle menu"
+            aria-expanded={isMobileMenuOpen}
           >
-            <span className="sr-only">Toggle menu</span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-6 w-6"
@@ -65,20 +70,21 @@ const Header = () => {
         </div>
       </div>
 
-      {/* Mobile Navigation Dropdown */}
+      {/* Mobile Navigation */}
       {isMobileMenuOpen && (
-        <div className="md:hidden px-4 pb-4">
+        <nav id="mobile-menu" className="md:hidden px-4 pb-4">
           <ul className="space-y-2 text-sm text-gray-700">
-            <li><a href="#" className="block hover:text-teal-600 transition">About</a></li>
-            <li><a href="#" className="block hover:text-teal-600 transition">Careers</a></li>
-            <li><a href="#" className="block hover:text-teal-600 transition">History</a></li>
-            <li><a href="#" className="block hover:text-teal-600 transition">Services</a></li>
-            <li><a href="#" className="block hover:text-teal-600 transition">Projects</a></li>
-            <li><a href="#" className="block hover:text-teal-600 transition">Blog</a></li>
-            <li><a href="#" className="block hover:text-teal-600 transition">Login</a></li>
-            <li><a href="#" className="block hover:text-teal-600 transition">Register</a></li>
+            <li><Link to="/" className="block hover:text-teal-600">Home</Link></li>
+            <li><Link to="/about" className="block hover:text-teal-600">About</Link></li>
+            <li><Link to="/history" className="block hover:text-teal-600">History</Link></li>
+            <li><Link to="/services" className="block hover:text-teal-600">Services</Link></li>
+            <li><Link to="/projects" className="block hover:text-teal-600">Projects</Link></li>
+            <li><Link to="/product" className="block hover:text-teal-600">Product</Link></li>
+            <li><Link to="/blog" className="block hover:text-teal-600">Blog</Link></li>
+            <li><Link to="/login" className="block hover:text-teal-600">Login</Link></li>
+            <li><Link to="/register" className="block hover:text-teal-600">Register</Link></li>
           </ul>
-        </div>
+        </nav>
       )}
     </header>
   );

@@ -4,6 +4,9 @@ import CarouselWithCaptions from '../Component/Caousel'
 import CardList from '../Component/CardList'
 import Section from '../Component/Section'
 import { motion } from 'framer-motion'
+import Section2 from '../Component/Section2'
+import Footer from '../Component/footer'
+
 
 export default function First() {
   return (
@@ -48,6 +51,26 @@ export default function First() {
       >
         <Section />
       </motion.div>
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.7, delay: 0.3 }}
+      >
+        <Section2/>
+      </motion.div>
+      <motion.div
+  initial={{ opacity: 0 }}
+  whileInView={{ opacity: 1 }}
+  viewport={{ once: true }}
+  transition={{ duration: 0.6 }}
+>
+  <Footer/>
+</motion.div>
+
     </div>
   )
 }
+
+
+
