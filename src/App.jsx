@@ -8,6 +8,7 @@ import RegisterForm from './Component/rester'; // if it's misspelled, correct th
 import About from './Home/About';
 import ProductPage from './Home/Product';
 
+
 export default function App() {
   return (
     <>
