@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom"; // ✅ Import Link
+import { Link } from "react-router-dom";
 
 const RegisterForm = () => {
   const [formData, setFormData] = useState({
@@ -55,13 +55,13 @@ const RegisterForm = () => {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-green-100 to-teal-200 p-4">
+    <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-green-100 to-teal-200 p-4 mt-10">
       <motion.form
         onSubmit={handleSubmit}
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="w-full max-w-2xl bg-white p-8 rounded-2xl shadow-2xl"
+        className="w-full max-w-2xl bg-white p-8 rounded-2xl shadow-2xl mt-[40px]"
       >
         <h2 className="text-3xl font-bold text-center text-teal-700 mb-6">Register</h2>
 
@@ -143,10 +143,9 @@ const RegisterForm = () => {
           Submit
         </button>
 
-        {/* ✅ Fixed Login Link */}
         <p className="text-center mt-4">
           Already have an account?{" "}
-          <Link to="/login" className="text-blue-500 ">
+          <Link to="/login" className="text-blue-500 hover:underline">
             Login
           </Link>
         </p>
