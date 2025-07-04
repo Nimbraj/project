@@ -1,28 +1,32 @@
 import React, { useState, useEffect } from "react";
-
+import img1 from '../assets/1.jpg'
+import img2 from '../assets/2.jpg'
+import img3 from '../assets/3.jpg'
+import img4 from '../assets/4.jpg'
+import img5 from '../assets/5.jpg'
 const slides = [
   {
-    image: "/images/slide1.jpg",
+    image: img1,
     title: "First slide label",
     description: "Some representative placeholder content for the first slide.",
   },
   {
-    image: "/images/slide2.jpg",
+    image: img2,
     title: "Second slide label",
     description: "Some representative placeholder content for the second slide.",
   },
   {
-    image: "/images/slide3.jpg",
+    image: img3,
     title: "Third slide label",
     description: "Some representative placeholder content for the third slide.",
   },
   {
-    image: "/images/slide4.jpg",
+    image: img4,
     title: "Fourth slide label",
     description: "Some representative placeholder content for the fourth slide.",
   },
   {
-    image: "/images/slide5.jpg",
+    image: img5,
     title: "Fifth slide label",
     description: "Some representative placeholder content for the fifth slide.",
   },
