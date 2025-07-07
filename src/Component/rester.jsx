@@ -21,7 +21,7 @@ const RegisterForm = () => {
   };
 
   const validateForm = () => {
-    let newErrors = {};
+    const newErrors = {};
     if (!formData.name.trim()) newErrors.name = "Name is required";
     if (!formData.address.trim()) newErrors.address = "Address is required";
     if (!formData.email.trim()) {
@@ -55,13 +55,13 @@ const RegisterForm = () => {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-green-100 to-teal-200 p-4 mt-10">
+    <div className="w-screen h-screen flex items-center justify-center bg-gradient-to-r from-indigo-500 to-purple-600 px-4">
       <motion.form
         onSubmit={handleSubmit}
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="w-full max-w-2xl bg-white p-8 rounded-2xl shadow-2xl mt-[40px]"
+        className=" w-full max-w-md bg-white  p-8 mt-10 rounded-2xl shadow-2xl"
       >
         <h2 className="text-3xl font-bold text-center text-teal-700 mb-6">Register</h2>
 
@@ -129,6 +129,7 @@ const RegisterForm = () => {
             name="mobile"
             type="tel"
             maxLength={10}
+            pattern="\d*"
             value={formData.mobile}
             onChange={handleChange}
             className="w-full border border-gray-300 px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-400"
@@ -136,16 +137,17 @@ const RegisterForm = () => {
           {errors.mobile && <p className="text-red-500 text-xs mt-1">{errors.mobile}</p>}
         </div>
 
+        {/* Submit */}
         <button
           type="submit"
-          className="w-full bg-amber-400 py-2 rounded-lg hover:bg-amber-500 transition duration-300"
+          className="w-full bg-amber-400 py-2 rounded-lg text-white font-semibold hover:bg-amber-500 transition duration-300"
         >
           Submit
         </button>
 
-        <p className="text-center mt-4">
+        <p className="text-center mt-4 text-sm">
           Already have an account?{" "}
-          <Link to="/login" className="text-blue-500 hover:underline">
+          <Link to="/login" className="text-blue-600 hover:underline">
             Login
           </Link>
         </p>

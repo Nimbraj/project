@@ -1,32 +1,53 @@
 import React from "react";
 import { motion } from "framer-motion";
+import img8 from '../assets/8.jpg';
+import img9 from '../assets/9.jpg';
+import img10 from '../assets/10.jpg';
+import img16 from '../assets/16.jpg';
+import img11 from '../assets/11.jpg';
+import img12 from '../assets/12.jpg';
+import img13 from '../assets/13.jpg';
+import img14 from '../assets/14.jpg';
 
 const cards = [
-  {
-    title: "Card One",
-    img: "#",
-  },
-  {
-    title: "Card Two",
-    img: "#",
-  },
-  {
-    title: "Card Three",
-    img: "#",
-  },
+  { title: "Card One", img: img8 },
+  { title: "Card Two", img: img9 },
+  { title: "Card Three", img: img10 },
+  { title: "Card Four", img: img16 },
+  { title: "Card Five", img: img11 },
+  { title: "Card Six", img: img12 },
+  { title: "Card Seven", img: img13 },
+  { title: "Card Eight", img: img14 },
 ];
+
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.2,
+    },
+  },
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { opacity: 1, y: 0 },
+};
 
 const CardList = () => {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 p-6 bg-gray-100 min-h-screen">
+    <motion.div
+      className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-6 bg-gray-100 min-h-screen"
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+    >
       {cards.map((card, index) => (
         <motion.div
           key={index}
           className="rounded-2xl bg-white shadow-lg overflow-hidden hover:shadow-2xl transition-shadow"
           style={{ height: "455px" }}
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: index * 0.2 }}
+          variants={cardVariants}
         >
           <img
             src={card.img}
@@ -38,7 +59,7 @@ const CardList = () => {
           </div>
         </motion.div>
       ))}
-    </div>
+    </motion.div>
   );
 };
 
