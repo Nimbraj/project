@@ -6,7 +6,8 @@ import First from './Home/First';
 import Login from './Component/Login';
 import RegisterForm from './Component/rester'; // if it's misspelled, correct the file name
 import About from './Home/About';
-import ProductPage from './Home/Product';
+import Product from './Home/Product';
+
 
 
 export default function App() {
@@ -19,7 +20,7 @@ export default function App() {
         <Route path="/register" element={<RegisterForm />} />
        
         <Route path="/about" element={<About />} />
-        <Route path="/product" element={<ProductPage />} />
+        <Route path="/product" element={<Product/>} />
         
 
       </Routes>

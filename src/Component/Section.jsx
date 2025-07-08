@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import img23 from '../assets/23.jpg';
 
 const Section = () => {
   return (
@@ -18,7 +19,7 @@ const Section = () => {
             <motion.img
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 300 }}
-              src="https://images.unsplash.com/photo-1731690415686-e68f78e2b5bd?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              src={img23} // ✅ Corrected here
               className="rounded shadow-md"
               alt="Interactive"
             />
